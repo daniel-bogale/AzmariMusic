@@ -2,16 +2,6 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Box, Card, Image, Flex } from "theme-ui";
 
-const StyledFlex = styled(Flex)`
-  padding-top: 7rem;
-  padding-left: 17rem;
-  padding-bottom: 1rem;
-  overflow: hidden;
-  transition: all 0.5s;
-  &:hover {
-    background-color: black;
-  }
-`;
 const StyledBox = styled(Box)`
   display: grid;
   gap: 1rem;
@@ -71,109 +61,107 @@ const StyledImage = styled(Image)`
 
 const MusicList = () => {
   return (
-    <StyledFlex>
-      <StyledBox>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.goldderby.com/wp-content/uploads/2020/11/the-weeknd.jpg?w=620&h=360&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-        <StyledCard>
-          <div id="image-container">
-            <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-          </div>
-          <h3 id="artist-name">The weekend</h3>
-          <h4 id="song-name">peace</h4>
-          <p id="song-discription">
-            Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-            odiPariatur quos aliquid quae.
-          </p>
-        </StyledCard>
-      </StyledBox>
-    </StyledFlex>
+    <StyledBox>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.goldderby.com/wp-content/uploads/2020/11/the-weeknd.jpg?w=620&h=360&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+      <StyledCard>
+        <div id="image-container">
+          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+        </div>
+        <h3 id="artist-name">The weekend</h3>
+        <h4 id="song-name">peace</h4>
+        <p id="song-discription">
+          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+          odiPariatur quos aliquid quae.
+        </p>
+      </StyledCard>
+    </StyledBox>
   );
 };
 
