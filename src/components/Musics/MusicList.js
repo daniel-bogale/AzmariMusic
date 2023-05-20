@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { Box, Card, Image, Flex } from "theme-ui";
+import { Box, Card, Image } from "theme-ui";
+import Modify from "../../Images/file-edit-svgrepo-com.svg";
+import AddToCart from "../../Images/add-to-cart-svgrepo-com.svg";
 
 const StyledBox = styled(Box)`
   display: grid;
@@ -50,6 +52,26 @@ const StyledCard = styled(Card)`
         transform: scale(1.01);
         transition: all 0.2s;
       }
+      &:hover::after {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        content: src(${Modify});
+        background-image: url(${AddToCart});
+        content: "";
+        display: inline-block;
+        height: 3rem;
+        width: 3rem;
+        background-size: 3rem;
+      }
+    `}
+  ${(props) =>
+    props.type === "userMusic" &&
+    css`
+      &:hover &::after {
+        background: url(Modify);
+        content: "some";
+      }
     `}
 `;
 
@@ -59,43 +81,6 @@ const StyledImage = styled(Image)`
   width: 100%;
 `;
 
-{
-  /* <StyledCard>
-<div id="image-container">
-  <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-</div>
-<h3 id="artist-name">The weekend</h3>
-<h4 id="song-name">peace</h4>
-<p id="song-discription">
-  Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-  odiPariatur quos aliquid quae.
-</p>
-</StyledCard>
-<StyledCard>
-<div id="image-container">
-  <StyledImage src="https://www.goldderby.com/wp-content/uploads/2020/11/the-weeknd.jpg?w=620&h=360&crop=1" />
-</div>
-<h3 id="artist-name">The weekend</h3>
-<h4 id="song-name">peace</h4>
-<p id="song-discription">
-  Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-  odiPariatur quos aliquid quae.
-</p>
-</StyledCard>
-
-<StyledCard>
-<div>
-  <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-</div>
-<h3 id="artist-name">The weekend</h3>
-<h4 id="song-name">peace</h4>
-<p id="song-discription">
-  Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-  odiPariatur quos aliquid quae.
-</p>
-</StyledCard> */
-}
-
 const MusicList = (props) => {
   let cartContents = "No Music is added";
 
@@ -103,7 +88,7 @@ const MusicList = (props) => {
     cartContents = props.musics.map((music) => {
       return (
         <StyledCard key={music.id}>
-          <div>
+          <div id="image-container">
             <StyledImage src={music.photoLink} />
           </div>
           <h3 id="artist-name">{music.artist}</h3>
