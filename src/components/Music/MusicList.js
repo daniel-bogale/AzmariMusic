@@ -59,109 +59,65 @@ const StyledImage = styled(Image)`
   width: 100%;
 `;
 
-const MusicList = () => {
+{
+  /* <StyledCard>
+<div id="image-container">
+  <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+</div>
+<h3 id="artist-name">The weekend</h3>
+<h4 id="song-name">peace</h4>
+<p id="song-discription">
+  Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+  odiPariatur quos aliquid quae.
+</p>
+</StyledCard>
+<StyledCard>
+<div id="image-container">
+  <StyledImage src="https://www.goldderby.com/wp-content/uploads/2020/11/the-weeknd.jpg?w=620&h=360&crop=1" />
+</div>
+<h3 id="artist-name">The weekend</h3>
+<h4 id="song-name">peace</h4>
+<p id="song-discription">
+  Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+  odiPariatur quos aliquid quae.
+</p>
+</StyledCard>
+
+<StyledCard>
+<div>
+  <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
+</div>
+<h3 id="artist-name">The weekend</h3>
+<h4 id="song-name">peace</h4>
+<p id="song-discription">
+  Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
+  odiPariatur quos aliquid quae.
+</p>
+</StyledCard> */
+}
+
+const MusicList = (props) => {
+  let cartContents = "No Music is added";
+
+  if (props.musics.length > 0) {
+    cartContents = props.musics.map((music) => {
+      return (
+        <StyledCard>
+          <div>
+            <StyledImage src={music.photoLink} />
+          </div>
+          <h3 id="artist-name">{music.artist}</h3>
+          <h4 id="song-name">{music.songName}</h4>
+          <p id="song-discription">{music.songDescription}</p>
+        </StyledCard>
+      );
+    });
+  }
+
   return (
-    <StyledBox>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.goldderby.com/wp-content/uploads/2020/11/the-weeknd.jpg?w=620&h=360&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-      <StyledCard>
-        <div id="image-container">
-          <StyledImage src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1" />
-        </div>
-        <h3 id="artist-name">The weekend</h3>
-        <h4 id="song-name">peace</h4>
-        <p id="song-discription">
-          Lorem apiente libero quam tempore exercitationem ex odio maxime fuga
-          odiPariatur quos aliquid quae.
-        </p>
-      </StyledCard>
-    </StyledBox>
+    <>
+      <StyledBox>{cartContents}</StyledBox>
+    </>
   );
 };
 

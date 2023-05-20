@@ -3,8 +3,8 @@ export default {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   colors: {
     black1: "rgba(0, 0, 0, 0.753)",
-    black2: "rgba(51, 48, 48, 0.295)",
-    black3: "rgba(48, 48, 53, 0.575)",
+    black2: "rgba(36, 34, 34, 0.295)",
+    black3: "rgba(44, 44, 46, 0.575)",
     black4: "rgb(176, 176, 188)",
 
     lightPurple: "rgb(12, 12, 59)",
