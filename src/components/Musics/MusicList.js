@@ -102,7 +102,7 @@ const MusicList = (props) => {
   if (props.musics.length > 0) {
     cartContents = props.musics.map((music) => {
       return (
-        <StyledCard>
+        <StyledCard key={music.id}>
           <div>
             <StyledImage src={music.photoLink} />
           </div>

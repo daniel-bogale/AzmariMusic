@@ -1,13 +1,15 @@
 import { ThemeProvider } from "theme-ui";
 import MainHeader from "../src/components/Layout/MainHeader";
 import theme from "./store/theme";
-import Musics from "./components/Music/Musics";
+import Musics from "./components/Musics/Musics";
+import NewMusicForm from "./components/Musics/NewMusicForm";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <MainHeader />
-      <Musics />
+      {/* <Musics /> */}
+      <NewMusicForm />
     </ThemeProvider>
   );
 }
