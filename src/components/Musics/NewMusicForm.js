@@ -16,6 +16,8 @@ const StyledBox = styled(Box)`
 const StyledForm = styled.form`
   align-self: center;
   width: 80%;
+  margin: 5vh auto;
+
   max-width: 60rem;
   background: rgb(0, 0, 0);
   background: linear-gradient(
@@ -29,6 +31,7 @@ const StyledForm = styled.form`
   @media (max-width: 70rem) {
     padding: 2rem;
     width: 98%;
+    margin-right: 2rem;
   }
 `;
 

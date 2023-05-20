@@ -2,7 +2,7 @@ export default {
   breakpoints: ["40em", "52em", "64em"],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   colors: {
-    black1: "rgba(0, 0, 0, 0.753)",
+    black1: "rgb(27, 26, 26)",
     black2: "rgba(36, 34, 34, 0.295)",
     black3: "rgba(44, 44, 46, 0.575)",
     black4: "rgb(176, 176, 188)",

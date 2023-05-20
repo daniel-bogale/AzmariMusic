@@ -10,7 +10,7 @@ import add from "../../Images/add-square-svgrepo-com.svg";
 import search from "../../Images/search-svgrepo-com.svg";
 
 const StyledImage = styled(Image)`
-  width: 18%;
+  width: 10%;
   filter: invert(100%);
 
   ${(props) => css`
@@ -46,7 +46,7 @@ const SideBar = () => {
         position: "fixed",
         flexDirection: "column",
         height: "100%",
-        maxWidth: "15rem",
+        maxWidth: "14rem",
         backgroundColor: "black1",
         color: "white",
         zIndex: "1000",

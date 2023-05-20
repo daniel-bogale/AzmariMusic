@@ -64,7 +64,7 @@ const Header = () => {
         position: "fixed",
         justifyContent: "space-between",
         padding: "1rem",
-        paddingLeft: "16rem",
+        paddingLeft: "15rem",
         zIndex: "100",
         width: "100%",
         bg: "black3",
