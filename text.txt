@@ -1,0 +1,2 @@
+my server
+https://my-json-server.typicode.com/danibog/mock-REST-api-for-AzmariMusic/db
