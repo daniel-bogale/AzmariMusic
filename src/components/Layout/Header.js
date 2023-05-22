@@ -4,6 +4,16 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import Chevron from '../../Images/left-arrow-svgrepo-com.svg';
 
+const FlexHeader = styled(Flex)`
+  position: fixed;
+  justify-content: space-between;
+  padding: 1rem;
+  padding-left: 14rem;
+  z-index: 100;
+  width: 100%;
+  backdrop-filter: blur(1px);
+`;
+
 const StyledButton = styled(Button)`
   cursor: pointer;
   transition: all 0.12s;
@@ -59,14 +69,8 @@ const StyledIcon = styled(Image)`
 
 const Header = () => {
   return (
-    <Flex
+    <FlexHeader
       sx={{
-        position: 'fixed',
-        justifyContent: 'space-between',
-        padding: '1rem',
-        paddingLeft: '15rem',
-        zIndex: '100',
-        width: '100%',
         bg: 'black3'
       }}>
       <StyledIcon src={Chevron}></StyledIcon>
@@ -76,7 +80,7 @@ const Header = () => {
         </StyledButton>
         <StyledButton variant="secondary">Logout</StyledButton>
       </Flex>
-    </Flex>
+    </FlexHeader>
   );
 };
 

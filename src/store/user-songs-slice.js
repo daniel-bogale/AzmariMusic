@@ -6,7 +6,10 @@ const userSongSlice = createSlice({
   reducers: {
     saveSong: (preState, action) => {
       const savedSongid = action.payload.id;
-      // const existingSong = preState.find((song) => song.id === savedSongid);
+      const existingSong = preState.find((song) => song.id === savedSongid);
+      if (existingSong) {
+        return;
+      }
       preState.push(action.payload);
     },
     addSong: (preState, action) => {},

@@ -26,7 +26,6 @@ const StyledCard = styled(Card)`
   overflow: hidden;
   #image-container {
     overflow: hidden;
-    height: 10.5rem;
   }
   #artist-name {
     margin-bottom: 0;
