@@ -56,8 +56,13 @@ const StyledCard = styled(Card)`
         position: fixed;
         top: 1rem;
         left: 1rem;
+        padding: 3px;
         content: src(${Modify});
         background-image: url(${AddToCart});
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: white;
+        border-radius: 10px;
         content: "";
         display: inline-block;
         height: 3rem;
