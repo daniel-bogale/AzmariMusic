@@ -1,8 +1,8 @@
-import { Button, Flex, Image } from "theme-ui";
+import { Button, Flex, Image } from 'theme-ui';
 
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import Chevron from "../../Images/left-arrow-svgrepo-com.svg";
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import Chevron from '../../Images/left-arrow-svgrepo-com.svg';
 
 const StyledButton = styled(Button)`
   cursor: pointer;
@@ -10,7 +10,7 @@ const StyledButton = styled(Button)`
   margin: 0 4px;
 
   ${(props) =>
-    props.variant === "primary" &&
+    props.variant === 'primary' &&
     css`
       background-color: ${props.theme.buttons.primary.bg};
       color: ${props.theme.buttons.primary.color};
@@ -21,12 +21,12 @@ const StyledButton = styled(Button)`
     `}
 
   ${(props) =>
-    props.variant === "secondary" &&
+    props.variant === 'secondary' &&
     css`
       background-color: ${props.theme.buttons.secondary.bg};
       color: ${props.theme.buttons.secondary.color};
       &:hover {
-        background-color: "rgba(255, 255, 255, 0.884)";
+        background-color: 'rgba(255, 255, 255, 0.884)';
       }
     `} 
     &:hover {
@@ -61,17 +61,16 @@ const Header = () => {
   return (
     <Flex
       sx={{
-        position: "fixed",
-        justifyContent: "space-between",
-        padding: "1rem",
-        paddingLeft: "15rem",
-        zIndex: "100",
-        width: "100%",
-        bg: "black3",
-      }}
-    >
+        position: 'fixed',
+        justifyContent: 'space-between',
+        padding: '1rem',
+        paddingLeft: '15rem',
+        zIndex: '100',
+        width: '100%',
+        bg: 'black3'
+      }}>
       <StyledIcon src={Chevron}></StyledIcon>
-      <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
+      <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <StyledButton variant="primary" disabled={true}>
           Login
         </StyledButton>

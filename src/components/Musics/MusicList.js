@@ -1,8 +1,8 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { Box, Card, Image } from "theme-ui";
-import Modify from "../../Images/file-edit-svgrepo-com.svg";
-import AddToCart from "../../Images/add-to-cart-svgrepo-com.svg";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Box, Card, Image } from 'theme-ui';
+import Modify from '../../Images/file-edit-svgrepo-com.svg';
+import AddToCart from '../../Images/add-to-cart-svgrepo-com.svg';
 
 const StyledBox = styled(Box)`
   display: grid;
@@ -63,7 +63,7 @@ const StyledCard = styled(Card)`
         background-position: center;
         background-color: white;
         border-radius: 10px;
-        content: "";
+        content: '';
         display: inline-block;
         height: 3rem;
         width: 3rem;
@@ -71,11 +71,11 @@ const StyledCard = styled(Card)`
       }
     `}
   ${(props) =>
-    props.type === "userMusic" &&
+    props.type === 'userMusic' &&
     css`
       &:hover &::after {
         background: url(Modify);
-        content: "some";
+        content: 'some';
       }
     `}
 `;
@@ -87,7 +87,8 @@ const StyledImage = styled(Image)`
 `;
 
 const MusicList = (props) => {
-  let cartContents = "No Music is added";
+  let cartContents = 'No Music is added';
+  console.log(props);
 
   if (props.musics.length > 0) {
     cartContents = props.musics.map((music) => {

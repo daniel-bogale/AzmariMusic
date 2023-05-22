@@ -1,5 +1,5 @@
-import { Flex } from "theme-ui";
-import styled from "@emotion/styled";
+import { Flex } from 'theme-ui';
+import styled from '@emotion/styled';
 
 const StyledFlex = styled(Flex)`
   padding-top: 6rem;

@@ -1,6 +1,6 @@
-import MusicList from "./MusicList";
+import MusicList from './MusicList';
 
-import MainSection from "../UI/MainSectionContainer";
+import MainSection from '../UI/MainSectionContainer';
 
 const Musics = (props) => {
   return (

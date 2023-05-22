@@ -1,13 +1,13 @@
-import { Flex, Link, Image } from "theme-ui";
-import logo from "../../Images/Screenshot from 2023-05-18 07-21-46.png";
+import { Flex, Link, Image } from 'theme-ui';
+import logo from '../../Images/Screenshot from 2023-05-18 07-21-46.png';
 
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
-import home from "../../Images/home-svgrepo-com.svg";
-import heart from "../../Images/heart-01-svgrepo-com.svg";
-import add from "../../Images/add-square-svgrepo-com.svg";
-import search from "../../Images/search-svgrepo-com.svg";
+import home from '../../Images/home-svgrepo-com.svg';
+import heart from '../../Images/heart-01-svgrepo-com.svg';
+import add from '../../Images/add-square-svgrepo-com.svg';
+import search from '../../Images/search-svgrepo-com.svg';
 
 const StyledImage = styled(Image)`
   width: 10%;
@@ -43,32 +43,26 @@ const SideBar = () => {
   return (
     <Flex
       sx={{
-        position: "fixed",
-        flexDirection: "column",
-        height: "100%",
-        maxWidth: "14rem",
-        backgroundColor: "black1",
-        color: "white",
-        zIndex: "1000",
-      }}
-    >
+        position: 'fixed',
+        flexDirection: 'column',
+        height: '100%',
+        maxWidth: '14rem',
+        backgroundColor: 'black1',
+        color: 'white',
+        zIndex: '1000'
+      }}>
       <Logo src={logo} />
 
       <Flex
         sx={{
-          marginLeft: "1rem",
-          marginTop: "1rem",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          gap: "1rem",
-        }}
-      >
-        <StyledLink>
-          {<StyledImage src={home} variant="icon"></StyledImage>} Home
-        </StyledLink>
-        <StyledLink>
-          {<StyledImage src={search} variant="icon"></StyledImage>} Search
-        </StyledLink>
+          marginLeft: '1rem',
+          marginTop: '1rem',
+          flexDirection: 'column',
+          justifyContent: 'space-evenly',
+          gap: '1rem'
+        }}>
+        <StyledLink>{<StyledImage src={home} variant="icon"></StyledImage>} Home</StyledLink>
+        <StyledLink>{<StyledImage src={search} variant="icon"></StyledImage>} Search</StyledLink>
         <StyledLink>
           {<StyledImage src={add} variant="icon"></StyledImage>} Create Playlist
         </StyledLink>
