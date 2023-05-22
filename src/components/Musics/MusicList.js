@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 import { Box, Card, Image } from 'theme-ui';
 import Modify from '../../Images/file-edit-svgrepo-com.svg';
 import AddToCart from '../../Images/add-to-cart-svgrepo-com.svg';
-
+import { useDispatch } from 'react-redux';
+import { songActions } from '../../store/user-songs-slice';
+import { removeSuggestedSong } from '../../store/suggested-song-slice';
 const StyledBox = styled(Box)`
   display: grid;
   gap: 1rem;
@@ -44,14 +46,18 @@ const StyledCard = styled(Card)`
     text-overflow: ellipsis;
     transition: all 0.2s;
   }
+  ${(props) => css`
+    background-color: ${props.theme.colors.black2};
+    &:hover {
+      background-color: ${props.theme.colors.black3};
+      transform: scale(1.01);
+      transition: all 0.2s;
+    }
+  `}
+
   ${(props) =>
+    props.type === 'suggestedMusic' &&
     css`
-      background-color: ${props.theme.colors.black2};
-      &:hover {
-        background-color: ${props.theme.colors.black3};
-        transform: scale(1.01);
-        transition: all 0.2s;
-      }
       &:hover::after {
         position: fixed;
         top: 1rem;
@@ -87,13 +93,23 @@ const StyledImage = styled(Image)`
 `;
 
 const MusicList = (props) => {
+  const dispatch = useDispatch();
+  const saveSongHandler = (song, type) => {
+    if (type === 'suggestedMusic') {
+      dispatch(songActions.saveSong(song));
+      dispatch(removeSuggestedSong(song.id));
+    }
+  };
+
   let cartContents = 'No Music is added';
-  console.log(props);
 
   if (props.musics.length > 0) {
     cartContents = props.musics.map((music) => {
       return (
-        <StyledCard key={music.id}>
+        <StyledCard
+          type={props.type}
+          onClick={saveSongHandler.bind(this, music, props.type)}
+          key={music.id}>
           <div id="image-container">
             <StyledImage src={music.photoLink} />
           </div>

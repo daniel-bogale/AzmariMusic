@@ -17,6 +17,7 @@
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "rebass": "^4.0.7",
+    "redux": "^4.2.1",
     "theme-ui": "^0.15.7",
     "web-vitals": "^2.1.4"
   },
