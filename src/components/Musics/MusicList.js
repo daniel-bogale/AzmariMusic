@@ -31,6 +31,7 @@ const StyledCard = styled(Card)`
   }
   #artist-name {
     margin-bottom: 0;
+    margin-top: 0.5rem;
   }
   #song-name {
     display: inline-block;
@@ -41,7 +42,7 @@ const StyledCard = styled(Card)`
   & p {
     display: -webkit-box;
     max-width: 400px;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

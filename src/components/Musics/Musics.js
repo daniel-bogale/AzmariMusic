@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  postRequestSuggestedSongsAction,
-  requestSuggestedSongsAction
+  postSuggestedSongsAction,
+  requestSuggestedSongsAction,
+  requestUserSongsAction
 } from '../../store/Redux-saga/sagas';
 
 const TEST_SONGS = [
@@ -42,10 +43,11 @@ const TEST_SONGS = [
 const Musics = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(postRequestSuggestedSongsAction(TEST_SONGS));
+    dispatch(postSuggestedSongsAction(TEST_SONGS));
   }, []);
   useEffect(() => {
     dispatch(requestSuggestedSongsAction());
+    dispatch(requestUserSongsAction());
   });
 
   return (
