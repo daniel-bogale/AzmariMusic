@@ -4,17 +4,19 @@ const userSongSlice = createSlice({
   name: 'songs',
   initialState: [],
   reducers: {
-    saveSong: (preState, action) => {
+    saveSong: (state, action) => {
       const savedSongid = action.payload.id;
-      const existingSong = preState.find((song) => song.id === savedSongid);
+      const existingSong = state.find((song) => song.id === savedSongid);
       if (existingSong) {
         return;
       }
-      preState.push(action.payload);
-    },
-    addSong: (preState, action) => {},
-    removeSong: (preState, action) => {},
-    modifySong: (preState, action) => {}
+      state.push(action.payload);
+    }
+    // fetchDataSuccess: (state, action) => {
+
+    // },
+    // removeSong: (state, action) => {},
+    // modifySong: (state, action) => {}
   }
 });
 

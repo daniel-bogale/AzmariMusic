@@ -27,28 +27,6 @@ import { useEffect } from 'react';
 // ];
 
 function App() {
-  // useEffect(() => {
-  //   const fetchApi = async () => {
-  //     const response = await fetch(
-  //       'https://azmari-e08fd-default-rtdb.firebaseio.com/suggestedMusics.json',
-  //       {
-  //         method: 'PUT',
-  //         body: JSON.stringify(DummyMusics),
-  //         headers: {
-  //           'Content-type': 'application/json; charset=UTF-8'
-  //         }
-  //       }
-  //     );
-  //     if (!response.ok) {
-  //       console.log('error 404 , known error on post');
-  //       return;
-  //     }
-  //     const jPostedContent = await response.json();
-
-  //     console.log(jPostedContent);
-  //   };
-  //   fetchApi();
-  // }, []);
   return (
     <ThemeProvider theme={theme}>
       <MainHeader />
