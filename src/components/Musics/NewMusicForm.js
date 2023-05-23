@@ -1,4 +1,4 @@
-import { Box, Label, Input, Button } from 'theme-ui';
+import { Box, Label, Input, Button, Textarea } from 'theme-ui';
 import MainSection from '../UI/MainSectionContainer';
 import styled from '@emotion/styled';
 
@@ -30,10 +30,19 @@ const StyledForm = styled.form`
   }
 `;
 
+const DescriptionInput = styled(Textarea)`
+  font-size: 1.2rem;
+
+  height: 9rem;
+  resize: none;
+`;
+
+const onSubmitHandler = (e) => {};
+
 const NewMusicForm = () => {
   return (
     <MainSection>
-      <StyledForm>
+      <StyledForm onSubmit={onSubmitHandler}>
         <StyledBox>
           <Label htmlFor="artistName">Artist&lsquo;s Name</Label>
           <Input id="artistName" name="artistName" defaultValue="Billie Eilish" />
@@ -41,6 +50,14 @@ const NewMusicForm = () => {
         <StyledBox>
           <Label htmlFor="songName">Song Name</Label>
           <Input id="songName" name="songName" defaultValue="Bad Guy" />
+        </StyledBox>
+        <StyledBox>
+          <Label htmlFor="description">Description</Label>
+          <DescriptionInput
+            id="description"
+            name="description"
+            defaultValue="Bad Guy is as much about social commentary as it is an unforgettable pop song. Eilish has explained that the track pokes fun at people who try to project an image out into the world that they want others to see them as – whether it’s true or not."
+          />
         </StyledBox>
         <StyledBox>
           <Label htmlFor="photoUrl">copy the cover photo url here</Label>

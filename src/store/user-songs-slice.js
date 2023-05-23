@@ -1,24 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  songs: []
+};
+
 const userSongSlice = createSlice({
   name: 'songs',
-  initialState: [],
+  initialState,
   reducers: {
     saveSong: (state, action) => {
-      const savedSongid = action.payload.id;
-      const existingSong = state.find((song) => song.id === savedSongid);
-      if (existingSong) {
-        return;
-      }
-      state.push(action.payload);
+      state.songs.push(action.payload);
     }
-    // fetchDataSuccess: (state, action) => {
-
-    // },
-    // removeSong: (state, action) => {},
-    // modifySong: (state, action) => {}
   }
 });
 
-export const songActions = userSongSlice.actions;
+export const userSongActions = userSongSlice.actions;
 export default userSongSlice.reducer;

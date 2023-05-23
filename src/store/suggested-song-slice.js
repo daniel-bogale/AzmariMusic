@@ -15,7 +15,7 @@ const initialState = {
 };
 
 const suggestedSongSlice = createSlice({
-  name: 'suggested songs',
+  name: 'suggestedSongs',
   initialState,
 
   reducers: {
@@ -25,17 +25,10 @@ const suggestedSongSlice = createSlice({
     fetchSuggestedSongsFailure(state, action) {
       console.log(action.payload, '......known.....');
       state.songs = [];
-    },
-    removeSuggestedSong(state, action) {
-      const filteredSongs = state.songs.filter((song) => {
-        return song.id !== action.payload;
-      });
-
-      state.songs = filteredSongs;
     }
   }
 });
 
-export const { removeSuggestedSong, fetchSuggestedSongsSuccess, fetchSuggestedSongsFailure } =
+export const { fetchSuggestedSongsSuccess, fetchSuggestedSongsFailure } =
   suggestedSongSlice.actions;
 export default suggestedSongSlice.reducer;

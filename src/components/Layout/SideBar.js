@@ -27,6 +27,7 @@ const FlexSideBar = styled(Flex)`
       position: fixed;
       width: 35vw;
       height: 18vw;
+      transform: scale(0.9);
       margin-top: -1rem;
       object-position: top;
     }

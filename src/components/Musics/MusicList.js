@@ -3,9 +3,12 @@ import styled from '@emotion/styled';
 import { Box, Card, Image } from 'theme-ui';
 import Modify from '../../Images/file-edit-svgrepo-com.svg';
 import AddToCart from '../../Images/add-to-cart-svgrepo-com.svg';
-import { useDispatch } from 'react-redux';
-import { songActions } from '../../store/user-songs-slice';
-import { removeSuggestedSong } from '../../store/suggested-song-slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { songActions, userSongActions } from '../../store/user-songs-slice';
+import { modifySuggestedSong } from '../../store/suggested-song-slice';
+import { requestaddSuggestedSongsAction } from '../../store/Redux-saga/sagas';
+import { addUserSongAction } from '../../store/Redux-saga/sagas';
+
 const StyledBox = styled(Box)`
   display: grid;
   gap: 1rem;
@@ -92,19 +95,43 @@ const StyledImage = styled(Image)`
 `;
 
 const MusicList = (props) => {
+  const suggestedSongs = useSelector((state) => state.suggestedSongs.songs);
+  const userSongs = useSelector((state) => state.userSongs.songs);
+
   const dispatch = useDispatch();
+
   const saveSongHandler = (song, type) => {
     if (type === 'suggestedMusic') {
-      dispatch(songActions.saveSong(song));
-      dispatch(removeSuggestedSong(song.id));
+      let prevSongs = [];
+      if (userSongs) {
+        prevSongs = userSongs.slice();
+      }
+      const savedSongid = song.id;
+      const existingSong = prevSongs.find((song) => song.id === savedSongid);
+      if (existingSong) {
+        return;
+      }
+
+      prevSongs.push(song);
+      dispatch(addUserSongAction(prevSongs));
+      dispatch(userSongActions.saveSong(song));
+
+      const filteredSongs = suggestedSongs.filter((music) => {
+        return music.id !== song.id;
+      });
+      dispatch(requestaddSuggestedSongsAction(filteredSongs));
     }
   };
 
   let cartContents =
     props.type === 'suggestedMusic' ? 'No Suggestion for now' : 'No Music is added';
 
-  if (props.musics.length > 0) {
-    cartContents = props.musics.map((music) => {
+  let musics = suggestedSongs;
+  if (props.type !== 'suggestedMusic') {
+    musics = userSongs;
+  }
+  if (musics?.length > 0) {
+    cartContents = musics.map((music) => {
       return (
         <StyledCard
           type={props.type}
