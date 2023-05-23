@@ -100,7 +100,8 @@ const MusicList = (props) => {
     }
   };
 
-  let cartContents = 'No Music is added';
+  let cartContents =
+    props.type === 'suggestedMusic' ? 'No Suggestion for now' : 'No Music is added';
 
   if (props.musics.length > 0) {
     cartContents = props.musics.map((music) => {
