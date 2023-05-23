@@ -24,7 +24,7 @@ const suggestedSongSlice = createSlice({
     },
     fetchSuggestedSongsFailure(state, action) {
       console.log(action.payload, '......known.....');
-      state.songs = [];
+      state.songs = initialState;
     }
   }
 });

@@ -1,15 +1,20 @@
 import { all, put, call, takeEvery } from 'redux-saga/effects';
-import { fetchSuggestedSongs, postSuggestedSongs, updateSuggestedSong, addUserSongs } from './API';
+import {
+  fetchSuggestedSongs,
+  postSuggestedSongs,
+  updateSuggestedSong,
+  updateUserSongs
+} from './API';
 import { fetchSuggestedSongsSuccess, fetchSuggestedSongsFailure } from '../suggested-song-slice';
 import { createAction } from '@reduxjs/toolkit';
-import { userSongActions } from '../user-songs-slice';
+import { fetchUserSongError, fetchUserSongSuccess } from '../user-songs-slice';
 
 export const requestSuggestedSongsAction = createAction('REQUEST_SUGGESTED_SONGS');
 export const postRequestSuggestedSongsAction = createAction('POST_SUGGESTED_SONGS');
-export const addUserSongAction = createAction('ADD_POST_USER_SONG');
+export const updateUserSongAction = createAction('ADD_POST_USER_SONG');
 
 export const requestFetchUserSongs = createAction('REQUEST_FETCH_USER');
-export const requestaddSuggestedSongsAction = createAction('REQUEST_ADD_SUGGESTED_SONGS');
+export const updateSuggestedSongsAction = createAction('REQUEST_ADD_SUGGESTED_SONGS');
 
 function* fetchSuggestedSongsData() {
   try {
@@ -28,16 +33,16 @@ function* postSuggestedSongsData(action) {
   }
 }
 
-function* addUserSongData(action) {
+function* updateUserSongData(action) {
   try {
-    const data = yield addUserSongs(action.payload);
-    // yield put(userSongActions.saveSong(action.payload));
+    const data = yield updateUserSongs(action.payload);
+    yield put(fetchUserSongSuccess(action.payload));
   } catch (error) {
-    // yield put(fetchUserSongs)
+    yield put(fetchUserSongError(error));
   }
 }
 
-function* addSuggestedSongsData(action) {
+function* updateSuggestedSongsData(action) {
   try {
     const data = yield updateSuggestedSong(action.payload);
     yield put(fetchSuggestedSongsSuccess(data));
@@ -46,27 +51,27 @@ function* addSuggestedSongsData(action) {
   }
 }
 
+function* watchPostSuggestedSongsData() {
+  yield takeEvery(postRequestSuggestedSongsAction().type, postSuggestedSongsData);
+}
+
 function* watchFetchUserData() {
   yield takeEvery(requestSuggestedSongsAction().type, fetchSuggestedSongsData);
 }
 
-function* watchPostSuggestedSongs() {
-  yield takeEvery(postRequestSuggestedSongsAction().type, postSuggestedSongsData);
+function* watchUpdateUserSongData() {
+  yield takeEvery(updateUserSongAction().type, updateUserSongData);
 }
 
-function* watchAddUserSongData() {
-  yield takeEvery(addUserSongAction().type, addUserSongData);
-}
-
-function* watchaddSuggestedSongData() {
-  yield takeEvery(requestaddSuggestedSongsAction().type, addSuggestedSongsData);
+function* watchUpdateSuggestedSongsData() {
+  yield takeEvery(updateSuggestedSongsAction().type, updateSuggestedSongsData);
 }
 
 export default function* rootSaga() {
   yield all([
+    watchPostSuggestedSongsData(),
     watchFetchUserData(),
-    watchaddSuggestedSongData(),
-    watchPostSuggestedSongs(),
-    watchAddUserSongData()
+    watchUpdateSuggestedSongsData(),
+    watchUpdateUserSongData()
   ]);
 }

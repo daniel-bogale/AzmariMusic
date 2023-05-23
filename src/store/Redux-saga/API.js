@@ -9,6 +9,15 @@ export const fetchSuggestedSongs = async () => {
   return suggestedMusics;
 };
 
+export const fetchUserSongs = async () => {
+  const response = await fetch('https://azmari-e08fd-default-rtdb.firebaseio.com/userSongs.json');
+  if (!response.ok) {
+    throw new Error('error 404 , known error on post');
+  }
+  const userSongs = await response.json();
+  return userSongs;
+};
+
 export const postSuggestedSongs = async (dummysongs) => {
   const response = await fetch(
     'https://azmari-e08fd-default-rtdb.firebaseio.com/suggestedMusics.json',
@@ -25,7 +34,7 @@ export const postSuggestedSongs = async (dummysongs) => {
   }
 };
 
-export const addUserSongs = async (userSongs) => {
+export const updateUserSongs = async (userSongs) => {
   console.log(userSongs);
   const response = await fetch('https://azmari-e08fd-default-rtdb.firebaseio.com/userSongs.json', {
     method: 'PUT',

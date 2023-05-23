@@ -6,8 +6,7 @@ import AddToCart from '../../Images/add-to-cart-svgrepo-com.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { songActions, userSongActions } from '../../store/user-songs-slice';
 import { modifySuggestedSong } from '../../store/suggested-song-slice';
-import { requestaddSuggestedSongsAction } from '../../store/Redux-saga/sagas';
-import { addUserSongAction } from '../../store/Redux-saga/sagas';
+import { updateSuggestedSongsAction, updateUserSongAction } from '../../store/Redux-saga/sagas';
 
 const StyledBox = styled(Box)`
   display: grid;
@@ -111,15 +110,14 @@ const MusicList = (props) => {
       if (existingSong) {
         return;
       }
-
       prevSongs.push(song);
-      dispatch(addUserSongAction(prevSongs));
-      dispatch(userSongActions.saveSong(song));
+
+      dispatch(updateUserSongAction(prevSongs));
 
       const filteredSongs = suggestedSongs.filter((music) => {
         return music.id !== song.id;
       });
-      dispatch(requestaddSuggestedSongsAction(filteredSongs));
+      dispatch(updateSuggestedSongsAction(filteredSongs));
     }
   };
 

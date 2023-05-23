@@ -43,8 +43,10 @@ const Musics = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(postRequestSuggestedSongsAction(TEST_SONGS));
-    dispatch(requestSuggestedSongsAction());
   }, []);
+  useEffect(() => {
+    dispatch(requestSuggestedSongsAction());
+  });
 
   return (
     <MainSection>
