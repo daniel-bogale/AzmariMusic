@@ -27,6 +27,9 @@ const StyledForm = styled.form`
   background: linear-gradient(317deg, #0c0c0c 0%, #222224ac 100%, rgba(0, 212, 255, 1) 100%);
   padding: 15vh 15vh;
   height: 100%;
+  & .invalidInput {
+    border-color: red;
+  }
   @media (max-width: 70rem) {
     padding: 2rem;
     width: 98%;
@@ -51,14 +54,29 @@ const NewMusicForm = () => {
   const dispatch = useDispatch();
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    let formIsValid = true;
 
-    if (
-      artistNameRef.current.value === '' ||
-      songNameRef.current.value === '' ||
-      descriptionRef.current.value === '' ||
-      photoUrlRef.current.value === ''
-    )
-      return;
+    console.log(artistNameRef.current.value);
+
+    if (artistNameRef.current.value === '') {
+      artistNameRef.current.className += ' invalidInput';
+      formIsValid = false;
+    }
+    if (songNameRef.current.value === '') {
+      songNameRef.current.className += ' invalidInput';
+      formIsValid = false;
+    }
+
+    if (descriptionRef.current.value === '') {
+      descriptionRef.current.className += ' invalidInput';
+      formIsValid = false;
+    }
+    if (photoUrlRef.current.value === '') {
+      photoUrlRef.current.className += ' invalidInput';
+      formIsValid = false;
+    }
+
+    if (!formIsValid) return;
 
     const song = {
       artist: artistNameRef.current.value,
@@ -67,6 +85,11 @@ const NewMusicForm = () => {
       photoLink: photoUrlRef.current.value,
       id: `m${Math.floor(Math.random() * 10000 + 1)}`
     };
+    artistNameRef.current.value = '';
+    songNameRef.current.value = '';
+    descriptionRef.current.value = '';
+    photoUrlRef.current.value = '';
+
     let prevUserSong = [];
     if (userSongs) {
       prevUserSong = userSongs.slice();

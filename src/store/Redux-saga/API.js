@@ -35,7 +35,6 @@ export const postSuggestedSongs = async (dummysongs) => {
 };
 
 export const updateUserSongs = async (userSongs) => {
-  console.log(userSongs);
   const response = await fetch('https://azmari-e08fd-default-rtdb.firebaseio.com/userSongs.json', {
     method: 'PUT',
     header: { 'Content-Type': 'application/json' },

@@ -19,9 +19,7 @@ const StyledFlex = styled(Flex)`
   &:hover {
     background-color: black;
   }
-  #image-container {
-    height: 10.5rem;
-  }
+
   @media (max-width: 40rem) {
     padding-left: 22vw;
     padding-top: 7rem;
