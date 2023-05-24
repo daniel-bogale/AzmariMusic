@@ -46,8 +46,8 @@ function* postSuggestedSongsData(action) {
 
 function* updateUserSongData(action) {
   try {
-    yield put(fetchUserSongSuccess(action.payload));
     const data = yield updateUserSongs(action.payload);
+    yield put(fetchUserSongSuccess(action.payload));
   } catch (error) {
     yield put(fetchUserSongError(error));
   }
@@ -55,8 +55,8 @@ function* updateUserSongData(action) {
 
 function* updateSuggestedSongsData(action) {
   try {
-    yield put(fetchSuggestedSongsSuccess(data));
     const data = yield updateSuggestedSong(action.payload);
+    yield put(fetchSuggestedSongsSuccess(data));
   } catch (error) {
     yield put(fetchSuggestedSongsFailure(error));
   }

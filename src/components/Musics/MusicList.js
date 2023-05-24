@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Box, Card, Image } from 'theme-ui';
-import ModifyIcon from '../../Images/file-edit-svgrepo-com.svg';
+import ModifyIcon from '../../Images/edit-svgrepo-com.svg';
 import AddToCartIcon from '../../Images/add-to-cart-svgrepo-com.svg';
+import DeleteIcon from '../../Images/delete-svgrepo-com.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { songActions, userSongActions } from '../../store/user-songs-slice';
 import { modifySuggestedSong } from '../../store/suggested-song-slice';
@@ -76,14 +77,14 @@ const StyledMusicCoverImage = styled(Image)`
 const ModifyMusicIcon = styled(Image)`
   display: none;
   position: absolute;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   right: 0.7rem;
   top: 0.7rem;
   border-radius: 10px;
-  background-color: #ffffffca;
-  padding: 0.5rem;
-  padding-right: 0;
+  background-color: #ffffff84;
+  backdrop-filter: blur(10px);
+  padding: 0.3rem;
   border-top-right-radius: 0;
   ${(props) =>
     props.type === 'suggestedMusic' &&
@@ -93,11 +94,25 @@ const ModifyMusicIcon = styled(Image)`
         padding: 0.4rem;
         border-radius: 1rem;
       }
+      &::after {
+        display: inline-block;
+        background-color: white;
+        position: absolute;
+        width: 2rem;
+        height: 1rem;
+        content: 'add Music';
+      }
+    `}
+  ${(props) =>
+    props.variant === 'delete' &&
+    css`
+      top: 4.5rem;
+      padding: 0.2rem;
+      transform: scale(1.07);
     `}
 
   &:hover {
-    background-color: #ffffff1f;
-    backdrop-filter: blur(4px);
+    background-color: #ffffffca;
   }
 `;
 
@@ -107,9 +122,7 @@ const MusicList = (props) => {
 
   const dispatch = useDispatch();
 
-  const saveSongHandler = (song, type) => {
-    if (type !== 'suggestedMusic') return;
-
+  const saveSongHandler = (song) => {
     let prevSongs = [];
     if (userSongs) {
       prevSongs = userSongs.slice();
@@ -120,13 +133,16 @@ const MusicList = (props) => {
       return;
     }
     prevSongs.push(song);
-
     dispatch(updateUserSongAction(prevSongs));
-
     const filteredSongs = suggestedSongs.filter((music) => {
       return music.id !== song.id;
     });
     dispatch(updateSuggestedSongsAction(filteredSongs));
+  };
+
+  const deleteSongHandler = (songId) => {
+    const filteredSongs = userSongs.slice().filter((song) => song.id !== songId);
+    dispatch(updateUserSongAction(filteredSongs));
   };
 
   let cartContents =
@@ -140,10 +156,7 @@ const MusicList = (props) => {
   if (musics?.length > 0) {
     cartContents = musics.map((music) => {
       return (
-        <StyledCard
-          type={props.type}
-          onClick={saveSongHandler.bind(this, music, props.type)}
-          key={music.id}>
+        <StyledCard type={props.type} key={music.id}>
           <CoverImageContainer id="image-container">
             <StyledMusicCoverImage src={music.photoLink} />
             {props.type === 'userMusic' && (
@@ -152,8 +165,18 @@ const MusicList = (props) => {
                 src={ModifyIcon}
                 id="action-icon"></ModifyMusicIcon>
             )}
+            {props.type === 'userMusic' && (
+              <ModifyMusicIcon
+                onClick={deleteSongHandler.bind(this, music.id)}
+                type={props.type}
+                variant="delete"
+                src={DeleteIcon}
+                id="action-icon"></ModifyMusicIcon>
+            )}
+
             {props.type === 'suggestedMusic' && (
               <ModifyMusicIcon
+                onClick={saveSongHandler.bind(this, music)}
                 type={props.type}
                 src={AddToCartIcon}
                 id="action-icon"></ModifyMusicIcon>
