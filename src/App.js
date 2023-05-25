@@ -16,7 +16,9 @@ function App() {
   const isSuccess = useSelector((state) => state.userSongs.isSuccess);
 
   useEffect(() => {
-    console.log(isSuccess);
+    console.log('isSuccess', isSuccess);
+    console.log('isError', userSongsFetchError.isError);
+    console.log('isFetching', isFetching);
   });
 
   const StyledBox = styled(Box)`
