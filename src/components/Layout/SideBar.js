@@ -88,15 +88,15 @@ const SideBar = () => {
           <span>Home</span>
         </StyledLink>
         <StyledLink>
-          <StyledImage src={search} variant="icon"></StyledImage>
-          <span>Search</span>{' '}
-        </StyledLink>
-        <StyledLink>
-          {<StyledImage src={add} variant="icon"></StyledImage>} <span>Create Playlist</span>
+          {<StyledImage src={add} variant="icon"></StyledImage>} <span>Add Songs</span>
         </StyledLink>
         <StyledLink>
           {<StyledImage src={heart} variant="icon"></StyledImage>}
-          <span> Liked Songs</span>
+          <span> Songs you may like</span>
+        </StyledLink>
+        <StyledLink>
+          <StyledImage src={search} variant="icon"></StyledImage>
+          <span>Search</span>
         </StyledLink>
       </Flex>
     </FlexSideBar>

@@ -6,6 +6,7 @@ export default {
     black2: 'rgba(36, 34, 34, 0.295)',
     black3: 'rgba(44, 44, 46, 0.575)',
     black4: 'rgb(176, 176, 188)',
+    black5: 'rgb(64, 61, 61)',
 
     lightPurple: 'rgb(12, 12, 59)'
   },

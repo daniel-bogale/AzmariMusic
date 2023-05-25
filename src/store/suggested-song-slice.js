@@ -1,17 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchUserSongError, fetchUserSongSuccess } from './user-songs-slice';
 
 const initialState = {
-  songs: [
-    {
-      artist: 'The Weekend',
-      songName: 'Happy',
-      songDescription:
-        ' Lorem apiente libero quam tempore exercitationem ex odio maxime fugaodiPariatur quos aliquid quae',
-      id: 'm3',
-      photoLink:
-        'https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1'
-    }
-  ]
+  songs: []
 };
 
 const suggestedSongSlice = createSlice({
@@ -20,10 +11,11 @@ const suggestedSongSlice = createSlice({
 
   reducers: {
     fetchSuggestedSongsSuccess(state, action) {
+      fetchUserSongSuccess();
       state.songs = action.payload;
     },
     fetchSuggestedSongsFailure(state, action) {
-      console.log(action.payload, '......known.....');
+      fetchUserSongError(action.payload);
       state.songs = initialState;
     }
   }

@@ -10,6 +10,8 @@ import {
   requestSuggestedSongsAction,
   requestUserSongsAction
 } from '../../store/Redux-saga/sagas';
+import suggestedSongSlice from '../../store/suggested-song-slice';
+import { isFetching } from '../../store/user-songs-slice';
 
 const TEST_SONGS = [
   {
@@ -48,18 +50,17 @@ const Musics = () => {
   useEffect(() => {
     dispatch(requestSuggestedSongsAction());
     dispatch(requestUserSongsAction());
-  });
+  }, []);
 
   return (
-    <MainSection>
-      <div>
-        <h3>Suggested Music</h3>
-        <MusicList type="suggestedMusic"></MusicList>
-      </div>
-
+    <MainSection type="">
       <div>
         <h3>Your Musics</h3>
         <MusicList type="userMusic"></MusicList>
+      </div>
+      <div>
+        <h3>Suggested Music</h3>
+        <MusicList type="suggestedMusic"></MusicList>
       </div>
     </MainSection>
   );

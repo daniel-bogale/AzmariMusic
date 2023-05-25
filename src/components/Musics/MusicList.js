@@ -5,9 +5,10 @@ import ModifyIcon from '../../Images/edit-svgrepo-com.svg';
 import AddToCartIcon from '../../Images/add-to-cart-svgrepo-com.svg';
 import DeleteIcon from '../../Images/delete-svgrepo-com.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { songActions, userSongActions } from '../../store/user-songs-slice';
-import { modifySuggestedSong } from '../../store/suggested-song-slice';
+// import { songActions, userSongActions } from '../../store/user-songs-slice';
+// import { modifySuggestedSong } from '../../store/suggested-song-slice';
 import { updateSuggestedSongsAction, updateUserSongAction } from '../../store/Redux-saga/sagas';
+import { uiSliceActions } from '../../store/ui-slice';
 
 const StyledBox = styled(Box)`
   display: grid;
@@ -15,7 +16,6 @@ const StyledBox = styled(Box)`
   grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
 
   &:hover {
-    background-color: #0000005a;
     transition: all 0.5s;
   }
 `;
@@ -48,9 +48,9 @@ const StyledCard = styled(Card)`
     transition: all 0.2s;
   }
   ${(props) => css`
-    background-color: ${props.theme.colors.black2};
+    background-color: ${props.theme.colors.black5};
     &:hover {
-      background-color: ${props.theme.colors.black3};
+      background-color: ${props.theme.colors.black1};
       transform: scale(1.01);
       transition: all 0.2s;
     }
@@ -91,8 +91,9 @@ const ModifyMusicIcon = styled(Image)`
     css`
       & {
         left: 0.7rem;
-        padding: 0.4rem;
-        border-radius: 1rem;
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        transform: scale(1.18);
       }
       &::after {
         display: inline-block;
@@ -119,7 +120,6 @@ const ModifyMusicIcon = styled(Image)`
 const MusicList = (props) => {
   const suggestedSongs = useSelector((state) => state.suggestedSongs.songs);
   const userSongs = useSelector((state) => state.userSongs.songs);
-
   const dispatch = useDispatch();
 
   const saveSongHandler = (song) => {
@@ -145,6 +145,10 @@ const MusicList = (props) => {
     dispatch(updateUserSongAction(filteredSongs));
   };
 
+  const editToggleHandler = (songIndex) => {
+    dispatch(uiSliceActions.toggleEditCard(songIndex));
+  };
+
   let cartContents =
     props.type === 'suggestedMusic' ? 'No Suggestion for now' : 'No Music is added';
 
@@ -154,13 +158,14 @@ const MusicList = (props) => {
   }
 
   if (musics?.length > 0) {
-    cartContents = musics.map((music) => {
+    cartContents = musics.map((music, index) => {
       return (
         <StyledCard type={props.type} key={music.id}>
           <CoverImageContainer id="image-container">
             <StyledMusicCoverImage src={music.photoLink} />
             {props.type === 'userMusic' && (
               <ModifyMusicIcon
+                onClick={editToggleHandler.bind(this, index)}
                 type={props.type}
                 src={ModifyIcon}
                 id="action-icon"></ModifyMusicIcon>

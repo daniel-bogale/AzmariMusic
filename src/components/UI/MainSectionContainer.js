@@ -1,4 +1,4 @@
-import { Flex } from 'theme-ui';
+import { css, Flex } from 'theme-ui';
 import styled from '@emotion/styled';
 
 const StyledFlex = styled(Flex)`
@@ -8,17 +8,10 @@ const StyledFlex = styled(Flex)`
   overflow: hidden;
   transition: all 0.5s;
   flex-direction: column;
+  background-color: #f0f0f0;
   gap: 5rem;
-  color: white;
+  color: #000000;
   height: 100%;
-  & h3 {
-    color: white;
-    margin: 0;
-    margin-bottom: 1rem;
-  }
-  &:hover {
-    background-color: black;
-  }
 
   @media (max-width: 40rem) {
     padding-left: 22vw;
@@ -30,7 +23,7 @@ const StyledFlex = styled(Flex)`
 `;
 
 const MainSection = (props) => {
-  return <StyledFlex>{props.children}</StyledFlex>;
+  return <StyledFlex type={props.type}>{props.children}</StyledFlex>;
 };
 
 export default MainSection;

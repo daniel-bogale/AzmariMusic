@@ -1,17 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  songs: [
-    {
-      artist: 'The Weekend',
-      songName: 'Happy',
-      songDescription:
-        ' Lorem apiente libero quam tempore exercitationem ex odio maxime fugaodiPariatur quos aliquid quae',
-      id: 'm2',
-      photoLink:
-        'https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg?w=1581&h=1054&crop=1'
-    }
-  ]
+  songs: [],
+  error: {
+    isError: false,
+    errorMessage: 'danny'
+  },
+  isFetching: false,
+  isSuccess: null
 };
 
 const userSongSlice = createSlice({
@@ -19,19 +15,31 @@ const userSongSlice = createSlice({
   initialState,
   reducers: {
     saveSong: (state, action) => {
-      console.log(action.payload);
-
       state.songs.push(action.payload);
     },
-    fetchUserSongSuccess: (state, action) => {
+    fetchUserSongSuccess: (state, action = '') => {
+      state.error.isError = false;
+      state.isFetching = false;
+      state.isSuccess = true;
+      if (action === '') return;
       state.songs = action.payload;
     },
 
     fetchUserSongError: (state, action) => {
-      console.log(action.payload);
+      state.error.isError = true;
+      state.isFetching = false;
+      state.isSuccess = false;
+      console.log(state.isFetching);
+
+      state.error.errorMessage = action.payload;
+    },
+    isFetching: (state) => {
+      state.isFetching = true;
+      state.isSuccess = false;
+      state.error.isError = false;
     }
   }
 });
 
-export const { fetchUserSongError, fetchUserSongSuccess } = userSongSlice.actions;
+export const { isFetching, fetchUserSongError, fetchUserSongSuccess } = userSongSlice.actions;
 export default userSongSlice.reducer;

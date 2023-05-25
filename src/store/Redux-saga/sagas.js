@@ -8,7 +8,7 @@ import {
 } from './API';
 import { fetchSuggestedSongsSuccess, fetchSuggestedSongsFailure } from '../suggested-song-slice';
 import { createAction } from '@reduxjs/toolkit';
-import { fetchUserSongError, fetchUserSongSuccess } from '../user-songs-slice';
+import { fetchUserSongError, fetchUserSongSuccess, isFetching } from '../user-songs-slice';
 
 export const requestSuggestedSongsAction = createAction('REQUEST_SUGGESTED_SONGS');
 export const requestUserSongsAction = createAction('REQUEST_USER_SONGS');
@@ -20,6 +20,7 @@ export const updateUserSongAction = createAction('ADD_POST_USER_SONG');
 
 function* fetchSuggestedSongsData() {
   try {
+    yield put(isFetching());
     const data = yield fetchSuggestedSongs();
     yield put(fetchSuggestedSongsSuccess(data));
   } catch (error) {
@@ -29,6 +30,7 @@ function* fetchSuggestedSongsData() {
 
 function* fetchUserSongsData() {
   try {
+    yield put(isFetching());
     const data = yield fetchUserSongs();
     yield put(fetchUserSongSuccess(data));
   } catch (error) {
@@ -38,6 +40,7 @@ function* fetchUserSongsData() {
 
 function* postSuggestedSongsData(action) {
   try {
+    yield put(isFetching());
     const data = yield postSuggestedSongs(action.payload);
   } catch (error) {
     yield put(fetchSuggestedSongsFailure(error));
@@ -46,6 +49,7 @@ function* postSuggestedSongsData(action) {
 
 function* updateUserSongData(action) {
   try {
+    yield put(isFetching());
     const data = yield updateUserSongs(action.payload);
     yield put(fetchUserSongSuccess(action.payload));
   } catch (error) {
@@ -55,6 +59,7 @@ function* updateUserSongData(action) {
 
 function* updateSuggestedSongsData(action) {
   try {
+    yield put(isFetching());
     const data = yield updateSuggestedSong(action.payload);
     yield put(fetchSuggestedSongsSuccess(data));
   } catch (error) {
