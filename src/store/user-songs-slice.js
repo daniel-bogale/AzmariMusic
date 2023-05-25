@@ -37,9 +37,13 @@ const userSongSlice = createSlice({
       state.isFetching = true;
       state.isSuccess = false;
       state.error.isError = false;
+    },
+    toggleIsSuccess: (state) => {
+      state.isSuccess = !state.isSuccess;
     }
   }
 });
 
-export const { isFetching, fetchUserSongError, fetchUserSongSuccess } = userSongSlice.actions;
+export const { isFetching, fetchUserSongError, fetchUserSongSuccess, toggleIsSuccess } =
+  userSongSlice.actions;
 export default userSongSlice.reducer;

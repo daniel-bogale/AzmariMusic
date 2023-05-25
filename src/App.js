@@ -4,21 +4,25 @@ import theme from './rebass/theme';
 import Musics from './components/Musics/Musics';
 import NewMusicForm from './components/Musics/NewMusicForm';
 import ReactDOM from 'react-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import EditMusicForm from './components/Musics/EditMusicForm';
 import styled from '@emotion/styled';
 import { useEffect } from 'react';
+import { toggleIsSuccess } from './store/user-songs-slice';
 
 function App() {
   const editCardVisible = useSelector((state) => state.ui.editCardVisible);
   const userSongsFetchError = useSelector((state) => state.userSongs.error);
   const isFetching = useSelector((state) => state.userSongs.isFetching);
   const isSuccess = useSelector((state) => state.userSongs.isSuccess);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('isSuccess', isSuccess);
-    console.log('isError', userSongsFetchError.isError);
-    console.log('isFetching', isFetching);
+    if (isSuccess) {
+      setTimeout(() => {
+        dispatch(toggleIsSuccess());
+      }, 2000);
+    }
   });
 
   const StyledBox = styled(Box)`
