@@ -42,10 +42,10 @@ const StyledForm = styled.form`
 
 const StyledButton = styled(Button)`
   & {
-    transition: all 0.2s;
+    transition: all 0.12s;
   }
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.09);
   }
 `;
 
