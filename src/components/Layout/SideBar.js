@@ -67,6 +67,13 @@ const Logo = styled(Image)`
 `;
 
 const SideBar = () => {
+  const handleClickScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <FlexSideBar
       sx={{
@@ -85,18 +92,18 @@ const SideBar = () => {
           justifyContent: 'space-evenly',
           gap: '1rem'
         }}>
-        <StyledLink>
+        <StyledLink onClick={handleClickScroll.bind(this, 'user-musics')}>
           <StyledImage src={home} variant="icon"></StyledImage>
           <span>Home</span>
         </StyledLink>
-        <StyledLink>
+        <StyledLink onClick={handleClickScroll.bind(this, 'add-music')}>
           {<StyledImage src={add} variant="icon"></StyledImage>} <span>Add Songs</span>
         </StyledLink>
-        <StyledLink>
-          {<StyledImage src={heart} variant="icon"></StyledImage>}
+        <StyledLink onClick={handleClickScroll.bind(this, 'suggested-musics')}>
+          <StyledImage src={heart} variant="icon"></StyledImage>
           <span> Songs you may like</span>
         </StyledLink>
-        <StyledLink>
+        <StyledLink onClick={handleClickScroll.bind(this, 'user-musics')}>
           <StyledImage src={search} variant="icon"></StyledImage>
           <span>Search</span>
         </StyledLink>
