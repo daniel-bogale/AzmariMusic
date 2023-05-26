@@ -55,11 +55,11 @@ const Musics = () => {
   return (
     <MainSection type="">
       <div>
-        <h3>Your Musics</h3>
+        <h3 id="user-musics">Your Musics</h3>
         <MusicList type="userMusic"></MusicList>
       </div>
       <div>
-        <h3>Suggested Music</h3>
+        <h3 id="suggested-musics">Suggested Music</h3>
         <MusicList type="suggestedMusic"></MusicList>
       </div>
     </MainSection>

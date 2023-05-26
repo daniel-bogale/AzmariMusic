@@ -144,15 +144,13 @@ const MusicForm = (props) => {
     dispatch(uiSliceActions.toggleEditCard());
   };
 
-  let id = 'add-music';
   let buttonName = 'Add Music';
   if (props.type === 'edit') {
     buttonName = 'Edit';
-    id = '';
   }
 
   return (
-    <StyledForm id={id} onSubmit={onSubmitHandler}>
+    <StyledForm onSubmit={onSubmitHandler}>
       <StyledBox>
         <Label htmlFor="artistName">Artist&lsquo;s Name</Label>
         <Input

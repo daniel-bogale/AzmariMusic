@@ -4,7 +4,10 @@ import MusicForm from './MusicForm';
 const NewMusicForm = (props) => {
   return (
     <MainSection type={props.type}>
-      <MusicForm type="new" />
+      <div>
+        <h3 id="add-music">Add Music</h3>
+        <MusicForm type="new" />
+      </div>
     </MainSection>
   );
 };

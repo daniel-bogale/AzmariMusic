@@ -152,16 +152,14 @@ const MusicList = (props) => {
     props.type === 'suggestedMusic' ? 'No Suggestion for now' : 'No Music is added';
 
   let musics = suggestedSongs;
-  let id = 'suggested-musics';
   if (props.type !== 'suggestedMusic') {
     musics = userSongs;
-    id = 'user-musics';
   }
 
   if (musics?.length > 0) {
     cartContents = musics.map((music, index) => {
       return (
-        <StyledCard id={id} type={props.type} key={music.id}>
+        <StyledCard type={props.type} key={music.id}>
           <CoverImageContainer id="image-container">
             <StyledMusicCoverImage src={music.photoLink} />
             {props.type === 'userMusic' && (

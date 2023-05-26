@@ -14,3 +14,9 @@ code {
 * {
   box-sizing: border-box;
 }
+
+#add-music,
+#user-musics,
+#suggested-musics {
+  scroll-margin-top: 90px;
+}
