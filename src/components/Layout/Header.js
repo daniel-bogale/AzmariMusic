@@ -13,9 +13,10 @@ const FlexHeader = styled(Flex)`
   width: 100%;
   backdrop-filter: blur(1px);
   @media (max-width: 40rem) {
-    padding-left: 5rem;
+    padding-left: 5.2rem;
     button {
-      padding: 5px 10px;
+      padding: 10px 18px;
+      margin: 0.3rem;
     }
   }
 `;

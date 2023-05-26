@@ -27,20 +27,19 @@ const StyledForm = styled.form`
   max-width: 60rem;
   background: rgb(0, 0, 0);
   background: linear-gradient(317deg, #0c0c0c 0%, #141414ac 100%);
-  padding: 15vh 15vh;
+  padding: 15%;
   height: 100%;
   border-radius: 4px;
   & .invalidInput {
     border-color: red;
   }
-  @media (max-width: 70rem) {
-    padding: 2rem;
+  @media (max-width: 40rem) {
+    padding: 2.2rem;
     width: 99%;
     margin-right: 2rem;
     button {
-      padding: 5px 13px;
-
-      margin: 0;
+      padding: 10px 18px;
+      margin: 0.3rem;
     }
   }
 `;

@@ -5,6 +5,7 @@ const StyledFlex = styled(Flex)`
   padding-top: 6rem;
   padding-left: 17rem;
   padding-bottom: 1rem;
+  padding-right: 2rem;
   overflow: hidden;
   transition: all 0.5s;
   flex-direction: column;

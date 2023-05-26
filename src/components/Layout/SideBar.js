@@ -26,7 +26,7 @@ const FlexSideBar = styled(Flex)`
     & #logo {
       position: fixed;
       width: 5rem;
-      height: 5rem;
+      height: 5.3rem;
       object-position: top;
     }
 
