@@ -40,6 +40,15 @@ const StyledForm = styled.form`
   }
 `;
 
+const StyledButton = styled(Button)`
+  & {
+    transition: all 0.2s;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
 const DescriptionInput = styled(Textarea)`
   font-size: 1.2rem;
 
@@ -171,11 +180,11 @@ const MusicForm = (props) => {
           defaultValue={placeHolders.photoLink}
         />
       </StyledBox>
-      <Button variant="secondary">{buttonName}</Button>
+      <StyledButton variant="secondary">{buttonName}</StyledButton>
       {props.type === 'edit' && (
-        <Button ml="1rem" variant="secondary" onClick={cancelHandler}>
+        <StyledButton ml="1rem" variant="secondary" onClick={cancelHandler}>
           Cancel
-        </Button>
+        </StyledButton>
       )}
     </StyledForm>
   );
