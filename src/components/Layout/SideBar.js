@@ -21,18 +21,18 @@ const FlexSideBar = styled(Flex)`
       display: none;
     }
     & {
-      width: 5rem;
+      width: 3.5rem;
     }
     & #logo {
       position: fixed;
-      width: 35vw;
-      height: 18vw;
-      transform: scale(0.9);
-      margin-top: -1rem;
+      width: 5rem;
+      height: 5rem;
       object-position: top;
     }
+
     & #link-container {
-      margin-top: 25vw;
+      margin: 0 auto;
+      margin-top: 8rem;
     }
   }
 `;
@@ -72,7 +72,9 @@ const SideBar = () => {
       sx={{
         backgroundColor: 'black1'
       }}>
-      <Logo src={logo} id="logo" />
+      <div id="styled-image-container">
+        <Logo src={logo} id="logo" />
+      </div>
 
       <Flex
         id="link-container"

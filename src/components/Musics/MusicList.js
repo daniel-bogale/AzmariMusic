@@ -13,7 +13,7 @@ import { uiSliceActions } from '../../store/ui-slice';
 const StyledBox = styled(Box)`
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 
   &:hover {
     transition: all 0.5s;

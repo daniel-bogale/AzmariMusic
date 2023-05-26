@@ -71,6 +71,7 @@ function App() {
 
         <NewMusicForm type="addMusic"></NewMusicForm>
       </ThemeProvider>
+
       <Analytics />
     </>
   );

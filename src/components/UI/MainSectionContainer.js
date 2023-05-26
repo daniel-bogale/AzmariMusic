@@ -14,11 +14,8 @@ const StyledFlex = styled(Flex)`
   height: 100%;
 
   @media (max-width: 40rem) {
-    padding-left: 22vw;
-    padding-top: 7rem;
-    & #image-container {
-      height: 15rem;
-    }
+    padding-left: 5rem;
+    padding-top: 5rem;
   }
 `;
 

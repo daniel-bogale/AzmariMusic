@@ -12,6 +12,12 @@ const FlexHeader = styled(Flex)`
   z-index: 100;
   width: 100%;
   backdrop-filter: blur(1px);
+  @media (max-width: 40rem) {
+    padding-left: 5rem;
+    button {
+      padding: 5px 10px;
+    }
+  }
 `;
 
 const StyledButton = styled(Button)`

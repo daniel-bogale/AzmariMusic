@@ -35,8 +35,13 @@ const StyledForm = styled.form`
   }
   @media (max-width: 70rem) {
     padding: 2rem;
-    width: 98%;
+    width: 99%;
     margin-right: 2rem;
+    button {
+      padding: 5px 13px;
+
+      margin: 0;
+    }
   }
 `;
 
