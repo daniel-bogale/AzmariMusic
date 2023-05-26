@@ -16,6 +16,7 @@ const StyledFlex = styled(Flex)`
   @media (max-width: 40rem) {
     padding-left: 5rem;
     padding-top: 5rem;
+    padding-right: 1rem;
   }
 `;
 

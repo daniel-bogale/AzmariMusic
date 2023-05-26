@@ -23,7 +23,6 @@ const StyledBox = styled(Box)`
 const StyledCard = styled(Card)`
   cursor: pointer;
   border-radius: 5px;
-  margin-right: 1rem;
   padding: 0.8rem;
   color: white;
   overflow: hidden;
