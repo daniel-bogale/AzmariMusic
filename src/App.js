@@ -10,6 +10,8 @@ import styled from '@emotion/styled';
 import { useEffect } from 'react';
 import { toggleIsSuccess } from './store/user-songs-slice';
 
+import { Analytics } from '@vercel/analytics/react';
+
 function App() {
   const editCardVisible = useSelector((state) => state.ui.editCardVisible);
   const userSongsFetchError = useSelector((state) => state.userSongs.error);
@@ -49,25 +51,28 @@ function App() {
   `;
 
   return (
-    <ThemeProvider theme={theme}>
-      <StyledBox>
-        {isFetching && <p id="fetching-message">Loading data...</p>}
-        {!isFetching && userSongsFetchError.isError && (
-          <p id="error-message">Error Occurred: Check your Internet</p>
-        )}
-        {isSuccess && !isFetching && !userSongsFetchError.isError && (
-          <p id="success-message">Loaded Successfuly</p>
-        )}
-      </StyledBox>
+    <>
+      <ThemeProvider theme={theme}>
+        <StyledBox>
+          {isFetching && <p id="fetching-message">Loading data...</p>}
+          {!isFetching && userSongsFetchError.isError && (
+            <p id="error-message">Error Occurred: Check your Internet</p>
+          )}
+          {isSuccess && !isFetching && !userSongsFetchError.isError && (
+            <p id="success-message">Loaded Successfuly</p>
+          )}
+        </StyledBox>
 
-      <MainHeader />
-      <Musics />
+        <MainHeader />
+        <Musics />
 
-      {editCardVisible &&
-        ReactDOM.createPortal(<EditMusicForm />, document.getElementById('backdrop-root'))}
+        {editCardVisible &&
+          ReactDOM.createPortal(<EditMusicForm />, document.getElementById('backdrop-root'))}
 
-      <NewMusicForm type="addMusic"></NewMusicForm>
-    </ThemeProvider>
+        <NewMusicForm type="addMusic"></NewMusicForm>
+      </ThemeProvider>
+      <Analytics />
+    </>
   );
 }
 
