@@ -2,7 +2,6 @@ import { Button, Flex, Image } from 'theme-ui';
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import Chevron from '../../Images/left-arrow-svgrepo-com.svg';
 
 const FlexHeader = styled(Flex)`
   position: fixed;
@@ -80,7 +79,6 @@ const Header = () => {
       sx={{
         bg: 'black3'
       }}>
-      {/* <StyledIcon src={Chevron}></StyledIcon> */}
       <Flex sx={{ justifyContent: 'flex-end', alignItems: 'center' }}>
         <StyledButton variant="primary">Login</StyledButton>
         <StyledButton variant="secondary">Sign Up</StyledButton>

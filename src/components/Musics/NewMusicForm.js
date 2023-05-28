@@ -5,7 +5,9 @@ const NewMusicForm = (props) => {
   return (
     <MainSection type={props.type}>
       <div>
-        <h3 id="add-music">Add Music</h3>
+        <h3 className="title" id="add-music">
+          Add Music
+        </h3>
         <MusicForm type="new" />
       </div>
     </MainSection>

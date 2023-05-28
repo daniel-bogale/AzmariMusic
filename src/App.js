@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { toggleIsSuccess } from './store/user-songs-slice';
 
 import { Analytics } from '@vercel/analytics/react';
+import Footer from './components/Layout/Footer';
 
 function App() {
   const editCardVisible = useSelector((state) => state.ui.editCardVisible);
@@ -70,6 +71,7 @@ function App() {
           ReactDOM.createPortal(<EditMusicForm />, document.getElementById('backdrop-root'))}
 
         <NewMusicForm type="addMusic"></NewMusicForm>
+        <Footer />
       </ThemeProvider>
       <Analytics />
     </>

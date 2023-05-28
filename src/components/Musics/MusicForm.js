@@ -22,12 +22,12 @@ const StyledForm = styled.form`
   color: white;
   align-self: center;
   width: 80%;
-  margin: 5vh auto;
+  /* margin: 5vh auto; */
 
   max-width: 60rem;
   background: rgb(0, 0, 0);
   background: linear-gradient(317deg, #0c0c0c 0%, #141414ac 100%);
-  padding: 15%;
+  padding: 6rem;
   height: 100%;
   border-radius: 4px;
   & .invalidInput {

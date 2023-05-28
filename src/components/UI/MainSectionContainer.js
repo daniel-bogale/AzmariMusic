@@ -9,11 +9,11 @@ const StyledFlex = styled(Flex)`
   overflow: hidden;
   transition: all 0.5s;
   flex-direction: column;
-  background-color: #f0f0f0;
+  background-color: transparent;
   gap: 5rem;
   color: #000000;
   height: 100%;
-  & h3 {
+  & .title {
     font-size: 2rem;
   }
 
