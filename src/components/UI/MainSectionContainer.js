@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const StyledFlex = styled(Flex)`
   padding-top: 6rem;
   padding-left: 17rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   padding-right: 2rem;
   overflow: hidden;
   transition: all 0.5s;
@@ -13,6 +13,9 @@ const StyledFlex = styled(Flex)`
   gap: 5rem;
   color: #000000;
   height: 100%;
+  & h3 {
+    font-size: 2rem;
+  }
 
   @media (max-width: 40rem) {
     padding-left: 5rem;

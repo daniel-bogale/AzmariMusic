@@ -7,7 +7,6 @@ import { css } from '@emotion/react';
 import home from '../../Images/home-svgrepo-com.svg';
 import heart from '../../Images/heart-01-svgrepo-com.svg';
 import add from '../../Images/add-square-svgrepo-com.svg';
-import search from '../../Images/search-svgrepo-com.svg';
 
 const FlexSideBar = styled(Flex)`
   position: fixed;
@@ -102,10 +101,6 @@ const SideBar = () => {
         <StyledLink onClick={handleClickScroll.bind(this, 'suggested-musics')}>
           <StyledImage src={heart} variant="icon"></StyledImage>
           <span> Songs you may like</span>
-        </StyledLink>
-        <StyledLink onClick={handleClickScroll.bind(this, 'user-musics')}>
-          <StyledImage src={search} variant="icon"></StyledImage>
-          <span>Search</span>
         </StyledLink>
       </Flex>
     </FlexSideBar>

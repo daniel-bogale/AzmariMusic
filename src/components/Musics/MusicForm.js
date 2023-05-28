@@ -33,8 +33,11 @@ const StyledForm = styled.form`
   & .invalidInput {
     border-color: red;
   }
+  -webkit-box-shadow: 12px 15px 31px -13px rgba(0, 0, 0, 0.83);
+  -moz-box-shadow: 12px 15px 31px -13px rgba(0, 0, 0, 0.83);
+  box-shadow: 12px 15px 31px -13px rgba(0, 0, 0, 0.83);
   @media (max-width: 40rem) {
-    padding: 2.2rem;
+    padding: 10%;
     width: 99%;
     margin-right: 2rem;
     button {

@@ -2,11 +2,9 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Box, Card, Image } from 'theme-ui';
 import ModifyIcon from '../../Images/edit-svgrepo-com.svg';
-import AddToCartIcon from '../../Images/add-to-cart-svgrepo-com.svg';
+import SaveSongIcon from '../../Images/heart-check-svgrepo-com (1).svg';
 import DeleteIcon from '../../Images/delete-svgrepo-com.svg';
 import { useDispatch, useSelector } from 'react-redux';
-// import { songActions, userSongActions } from '../../store/user-songs-slice';
-// import { modifySuggestedSong } from '../../store/suggested-song-slice';
 import { updateSuggestedSongsAction, updateUserSongAction } from '../../store/Redux-saga/sagas';
 import { uiSliceActions } from '../../store/ui-slice';
 
@@ -23,10 +21,12 @@ const StyledBox = styled(Box)`
 const StyledCard = styled(Card)`
   cursor: pointer;
   border-radius: 5px;
-  padding: 0.8rem;
+  padding: 0.6rem;
   color: white;
   overflow: hidden;
-
+  -webkit-box-shadow: 2px 10px 30px -11px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 2px 10px 30px -11px rgba(0, 0, 0, 0.78);
+  box-shadow: 2px 10px 30px -11px rgba(0, 0, 0, 0.78);
   #artist-name {
     margin-bottom: 0;
     margin-top: 0.5rem;
@@ -69,8 +69,9 @@ const StyledMusicCoverImage = styled(Image)`
   object-fit: cover;
   border-radius: 5px;
   width: 100%;
-  padding: 3px;
   height: 18rem;
+  border-radius: 8px;
+  filter: drop-shadow(5px 5px 20px #0000004a);
 `;
 
 const ModifyMusicIcon = styled(Image)`
@@ -182,7 +183,7 @@ const MusicList = (props) => {
               <ModifyMusicIcon
                 onClick={saveSongHandler.bind(this, music)}
                 type={props.type}
-                src={AddToCartIcon}
+                src={SaveSongIcon}
                 id="action-icon"></ModifyMusicIcon>
             )}
           </CoverImageContainer>

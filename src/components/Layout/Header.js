@@ -6,7 +6,7 @@ import Chevron from '../../Images/left-arrow-svgrepo-com.svg';
 
 const FlexHeader = styled(Flex)`
   position: fixed;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 1rem;
   padding-left: 14rem;
   z-index: 100;
@@ -80,12 +80,10 @@ const Header = () => {
       sx={{
         bg: 'black3'
       }}>
-      <StyledIcon src={Chevron}></StyledIcon>
-      <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
-        <StyledButton variant="primary" disabled={true}>
-          Login
-        </StyledButton>
-        <StyledButton variant="secondary">Logout</StyledButton>
+      {/* <StyledIcon src={Chevron}></StyledIcon> */}
+      <Flex sx={{ justifyContent: 'flex-end', alignItems: 'center' }}>
+        <StyledButton variant="primary">Login</StyledButton>
+        <StyledButton variant="secondary">Sign Up</StyledButton>
       </Flex>
     </FlexHeader>
   );
