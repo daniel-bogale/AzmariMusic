@@ -36,7 +36,7 @@ const StyledForm = styled.form`
   -webkit-box-shadow: 12px 15px 31px -13px rgba(0, 0, 0, 0.83);
   -moz-box-shadow: 12px 15px 31px -13px rgba(0, 0, 0, 0.83);
   box-shadow: 12px 15px 31px -13px rgba(0, 0, 0, 0.83);
-  @media (max-width: 40rem) {
+  @media (max-width: 70rem) {
     padding: 10%;
     width: 99%;
     margin-right: 2rem;
